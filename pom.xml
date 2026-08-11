@@ -12,8 +12,8 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sonar.organization>tejaravutla287</sonar.organization>
-        <sonar.projectKey>tejaravutla287_devsecops-color-app</sonar.projectKey>
+        <sonar.organization>rajeevgangaraju</sonar.organization>
+        <sonar.projectKey>rajeevgangaraju_devsecops-color-app</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
