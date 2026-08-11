@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/rajeevgangaraju/Poc-4'
+                git branch: 'main', url: 'https://github.com/rajeevgangaraju/poc-4'
             }
         }
         
