@@ -31,27 +31,38 @@ pipeline {
             }
         }
 
+        // stage('SonarCloud Analysis') {
+        //     steps {
+        //         // withSonarQubeEnv('SonarCloud') { 
+        //             // sh '''
+        //             //     mvn sonar:sonar \
+        //             //     -Dsonar.organization=rajeevgangaraju \
+        //             //     -Dsonar.projectKey=rajeevgangaraju_devsecops-color-app \
+        //             //     -Dsonar.host.url=https://sonarcloud.io
+        //             // '''
+        //         withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+        //                 sh '''
+        //                 mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+        //                 -Dsonar.organization=rajeevgangaraju \
+        //                 -Dsonar.projectKey=rajeevgangaraju_devsecops-color-app \
+        //                 -Dsonar.host.url=https://sonarcloud.io \
+        //                 -Dsonar.token=$SONAR_TOKEN
+        //                 '''
         stage('SonarCloud Analysis') {
-            steps {
-                // withSonarQubeEnv('SonarCloud') { 
-                    // sh '''
-                    //     mvn sonar:sonar \
-                    //     -Dsonar.organization=rajeevgangaraju \
-                    //     -Dsonar.projectKey=rajeevgangaraju_devsecops-color-app \
-                    //     -Dsonar.host.url=https://sonarcloud.io
-                    // '''
-                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
-                        sh '''
-                        mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-                        -Dsonar.organization=rajeevgangaraju \
-                        -Dsonar.projectKey=rajeevgangaraju_devsecops-color-app \
-                        -Dsonar.host.url=https://sonarcloud.io \
-                        -Dsonar.token=$SONAR_TOKEN
-                        '''
-}
-                }
-            }
+    steps {
+        withCredentials([
+            string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')
+        ]) {
+            sh '''
+            mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.organization=rajeevgangaraju \
+            -Dsonar.projectKey=rajeevgangaraju_devsecops-color-app \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=$SONAR_TOKEN
+            '''
         }
+    }
+}
         
         stage('Maven Build') {
             steps {
