@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: color-app
-        image: bhanutejaravutla/color-app:1
+        image: rajeevgangaraju/color-app:1
         ports:
-        - containerPort: 8080
+        - containerPort: 8082
         resources:
           limits:
             memory: "512Mi"
@@ -31,8 +31,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8082
+    targetPort: 8082
     nodePort: 30080
   selector:
     app: color-app
