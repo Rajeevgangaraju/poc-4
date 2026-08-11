@@ -51,7 +51,7 @@ pipeline {
         stage('SonarCloud Analysis') {
     steps {
         withCredentials([
-            string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')
+            string(credentialsId: 'SonarCloud', variable: 'SONAR_TOKEN')
         ]) {
             sh '''
             mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
